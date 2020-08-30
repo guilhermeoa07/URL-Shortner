@@ -1,6 +1,6 @@
-const { Schema } = require('mongoose');
-const shortid = require('shortid');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const shortid = require('shortid')
+const Schema = mongoose.Schema
 
 require('mongoose-type-url')
 
@@ -10,18 +10,18 @@ const urlSchema = new Schema({
         required: true,
         lowercase: true
     },
+    shortUrl: {
+        type: mongoose.SchemaTypes.Url,
+        lowercase: true,
+        unique: true
+    },
     urlCode: {
         type: String,
         default: shortid.generate,
         unique: true
     },
-    shortUrl: {
-        type: mongoose.SchemaTypes.Url,
-        unique: true
-    },
     createdAt: {
-        type: Date,
-        default: Date.now,
+        type: Date
     },
     updatedAt : {
         type: Date,
