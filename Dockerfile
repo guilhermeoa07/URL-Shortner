@@ -4,6 +4,8 @@ WORKDIR /usr/app
 
 COPY package*.json ./
 
+RUN npm test
+
 RUN npm install
 
 COPY . .

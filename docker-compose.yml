@@ -12,7 +12,6 @@ services:
     networks:
       - mongo-compose-network
 
-
   mongo:
     image: mongo
     ports:
