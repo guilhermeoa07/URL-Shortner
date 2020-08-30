@@ -14,8 +14,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', routers)
 
+app.use('*', (req, res, next) => {
+  res.status(404).send({Message: 'Non-existent route'})
+})
+
 app.use((error, req, res, next)=> {
-  res.status(404).send({Message: 'Something broke!'})
+  res.status(400).send({Message: 'Something broke!'})
 })
 
 app.listen(port, () => {
